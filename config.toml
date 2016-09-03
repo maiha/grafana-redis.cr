@@ -1,0 +1,9 @@
+[redis]
+host = "127.0.0.1"
+port = 6379
+# pass = "secret"
+zset = "dstat/__host__/%Y%m%d-%H"
+
+[httpd]
+host = "127.0.0.1"
+port = 3334

@@ -1,5 +1,9 @@
 version: 1.0
 shards:
+  crc16:
+    github: maiha/crc16.cr
+    version: 0.1.0
+
   jq:
     github: maiha/jq.cr
     version: 0.2.0
@@ -15,4 +19,20 @@ shards:
   radix:
     github: luislavena/radix
     version: 0.3.0
+
+  redis:
+    github: stefanwille/crystal-redis
+    version: 1.6.7
+
+  redis-cluster:
+    github: maiha/redis-cluster.cr
+    version: 0.6.0
+
+  toml:
+    github: manastech/crystal-toml
+    version: 0.4.0
+
+  toml-config:
+    github: maiha/toml-config.cr
+    version: 0.1.0
 
