@@ -42,7 +42,7 @@ class Storage::Redis
       lines.each do |json|
         jq = Jq.new(json)
         e  = jq[".epoch"].as_i64
-        v  = jq[path].as_i64
+        v  = as_value(jq[path]?)
         points << {v, e*1000}
       end
       results[key] = points
@@ -52,6 +52,17 @@ class Storage::Redis
 
   private def zrange_key_for(epoch)
     Time.epoch(epoch).to_local.to_s(@zset)
+  end
+
+  private def as_value(v : Jq?) : Grafana::DataValue
+    case v.try(&.raw).to_s
+    when /\A\d+\Z/
+      v.not_nil!.as_i64
+    when /\./
+      v.not_nil!.as_f
+    else
+      nil
+    end
   end
 
   private def debug_cmd_result(lines)

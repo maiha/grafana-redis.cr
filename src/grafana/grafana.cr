@@ -1,3 +1,4 @@
 module Grafana
-  alias Datapoints = Array(Tuple(Int64, Int64))
+  alias DataValue  = (Int64|Float64|Nil)
+  alias Datapoints = Array(Tuple(DataValue, Int64))
 end
