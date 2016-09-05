@@ -19,8 +19,10 @@ class Storage::Redis
     results = [] of ::Redis::RedisValue
     zsets = [epoch1, epoch2].map{|e| zrange_key_for(e)}.sort.uniq
     zsets.each do |zset|
+      puts "-- Process  " + "-" * 50
+      puts "ZRANGEBYSCORE #{zset} #{epoch1} #{epoch2}"
       result = @redis.zrangebyscore(zset, epoch1, epoch2)
-      debug_cmd "ZRANGEBYSCORE #{zset} #{epoch1} #{epoch2}", result
+      debug_cmd_result result
       results += result
     end
 
@@ -48,9 +50,7 @@ class Storage::Redis
     Time.epoch(epoch).to_local.to_s(@zset)
   end
 
-  private def debug_cmd(cmd, lines)
-    puts "-- Process  " + "-" * 50
-    puts cmd
+  private def debug_cmd_result(lines)
     if lines.size > 0
       puts "  -> #{lines.size} items".colorize.green
     else

@@ -39,7 +39,7 @@ class Servers::Redis
 
   private def debug_res(body)
     puts "-- Response " + "-" * 50
-    puts body[0..100]
+    puts "(%d bytes) %s" % [body.size, body[0..100]]
   end
 
   private def query_hash(epoch1, epoch2, key, size)
