@@ -3,7 +3,7 @@ require "../all"
 class Main
   include Opts
 
-  VERSION = "0.1.0"
+  VERSION = "0.3.0"
   PROGRAM = "grafana-redis"
   ARGS    = "config.toml"
 
