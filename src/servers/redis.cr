@@ -42,11 +42,15 @@ class Servers::Redis
     puts "(%d bytes) %s" % [body.size, body[0..100]]
   end
 
-  private def query_hash(epoch1, epoch2, key, size)
-    hash = {
-      "target" => key,
-      "datapoints" => @storage.search(epoch1, epoch2, key, size),
-    }
+  private def query_hashes(epoch1, epoch2, keys, size)
+    array = [] of Hash(String, Grafana::Datapoints | String)
+    @storage.search(epoch1, epoch2, keys, size).each do |key, val|
+      array << {
+        "target" => key,
+        "datapoints" => val,
+      }
+    end
+    return array
   end    
 
   private def do_query(ctx)
@@ -55,9 +59,9 @@ class Servers::Redis
     from = req.from.to_local.epoch.to_i32
     to   = req.to.to_local.epoch.to_i32
 
-    array = req.targets.map{|key| query_hash(from, to, key, req.max) }
+    array = query_hashes(from, to, req.targets, req.max)
     return array.to_json
-  rescue err : Jq::ParseError
+  rescue err
     puts "ERR: #{err.message}".colorize.red
     return "{}"
   end

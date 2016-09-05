@@ -15,35 +15,39 @@ class Storage::Redis
     %w( usr used writ free )
   end
 
-  def search(epoch1, epoch2, key, size) : Array(Tuple(Int64, Int64))
-    results = [] of ::Redis::RedisValue
+  def search(epoch1, epoch2, keys : Array(String), size) : Hash(String, Grafana::Datapoints)
+    values = [] of ::Redis::RedisValue
     zsets = [epoch1, epoch2].map{|e| zrange_key_for(e)}.sort.uniq
     zsets.each do |zset|
       puts "-- Process  " + "-" * 50
       puts "ZRANGEBYSCORE #{zset} #{epoch1} #{epoch2}"
       result = @redis.zrangebyscore(zset, epoch1, epoch2)
       debug_cmd_result result
-      results += result
+      values += result
     end
-
-    # squeeze lines to size
-    degree = [results.size / size, 1].max
+    
+    # squeeze massive values into size-ed lines
+    degree = [values.size / size, 1].max
     lines = [] of String
-    results.each_with_index do |line, i|
+    values.each_with_index do |line, i|
       if i % degree == 0
         lines << line.to_s.as(String)
       end
     end
 
-    points = [] of Tuple(Int64, Int64)
-    path = ".#{key}"
-    lines.each do |json|
-      jq = Jq.new(json)
-      e  = jq[".epoch"].as_i64
-      v  = jq[path].as_i64
-      points << {v, e*1000}
+    results = Hash(String, Grafana::Datapoints).new
+    keys.each do |key|
+      points = Grafana::Datapoints.new
+      path = ".#{key}"
+      lines.each do |json|
+        jq = Jq.new(json)
+        e  = jq[".epoch"].as_i64
+        v  = jq[path].as_i64
+        points << {v, e*1000}
+      end
+      results[key] = points
     end
-    return points
+    return results
   end
 
   private def zrange_key_for(epoch)
