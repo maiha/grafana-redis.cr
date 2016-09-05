@@ -1,2 +1,2 @@
 require "spec"
-require "../src/grafana-simple-json"
+require "../src/all"
