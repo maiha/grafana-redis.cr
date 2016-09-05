@@ -20,7 +20,7 @@ class Main
     host = str("httpd/host")
     port = int("httpd/port")
 
-    httpd = Servers::Redis.new(host: host, port: port, storage: storage)
+    httpd = Servers::Redis.new(host: host, port: port, storage: storage, limit: int("engine/limit"))
     httpd.start
   end
 
@@ -30,7 +30,7 @@ class Main
 
   private def storage
     zset = str("redis/zset").gsub(/__host__/, System.hostname)
-    Storage::Redis.new(redis, zset)
+    Storage::Redis.new(redis, zset, int("redis/sampling"))
   end
 end
 

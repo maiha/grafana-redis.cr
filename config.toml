@@ -3,6 +3,10 @@ host = "127.0.0.1"
 port = 6379
 # pass = "secret"
 zset = "dstat/__host__/%Y%m%d-%H"
+sampling = 3600      # max number of data to retrieve from redis
+
+[engine]
+limit = 100  # max number of datapoints to send to grafana server
 
 [httpd]
 host = "127.0.0.1"
