@@ -75,6 +75,7 @@ Expected stats are stored in `ZSET` as JSON String where
 % redis-cli --raw ZRANGEBYSCORE "dstat" 1472914796 1472914797
 {"usr":1,"sys":1,"idl":98,"wai":0,"hiq":0,"siq":0,"1m":0.02,"5m":0.03,"15m":0.05,"used":351000000,"buff":329000000,"cach":323000000,"free":998000000,"read":0,"writ":16000,"recv":1808,"send":664,"int":347,"csw":422,"lis":16,"act":15,"syn":0,"tim":0,"clo":0,"epoch":1472914796}
 {"usr":2,"sys":0,"idl":98,"wai":0,"hiq":0,"siq":0,"1m":0.02,"5m":0.03,"15m":0.05,"used":351000000,"buff":329000000,"cach":323000000,"free":997000000,"read":0,"writ":16000,"recv":2276,"send":1498,"int":354,"csw":467,"lis":16,"act":15,"syn":0,"tim":0,"clo":0,"epoch":1472914797}
+```
 
 ## Development
 
