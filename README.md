@@ -21,6 +21,10 @@ host = "127.0.0.1"
 port = 6379
 # pass = "secret"
 zset = "dstat"  # specify your ZADD key
+sampling = 3600      # max number of data to retrieve from redis
+
+[engine]
+limit = 100  # max number of datapoints to send to grafana server
 
 ## Backend Simple JSON Server that listens for Grafana
 [httpd]
