@@ -7,7 +7,7 @@ PROGS = grafana-redis
 
 all: static
 
-test: spec compile static
+test: spec compile static version
 
 static: bin ${PROGS}
 
@@ -28,3 +28,5 @@ compile:
 clean:
 	@rm -rf bin
 
+version: ${PROGS}
+	./bin/$^ --version

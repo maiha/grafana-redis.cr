@@ -1,10 +1,10 @@
 # Crystal
 require "http/server"
 require "json"
-require "jq"
 require "colorize"
 
 # Dependencies
+require "jq"
 require "redis-cluster"
 require "toml-config"
 

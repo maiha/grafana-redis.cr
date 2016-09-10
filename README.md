@@ -2,8 +2,8 @@
 
 Grefana Datasource for Redis storage
 
-- created by crystal-0.18.7
-- binary download: https://github.com/maiha/grafana-redis.cr/releases
+- Created by crystal-0.19.1
+- Static binary x86 linux : https://github.com/maiha/grafana-redis.cr/releases
 
 ## Features
 

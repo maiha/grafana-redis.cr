@@ -1,7 +1,7 @@
 class Storage::Redis
   getter keys
 
-  def initialize(@redis : Redis::Client, @zset : String, @sampling : Int32, @keys : Array(String) = [] of String)
+  def initialize(@redis : ::Redis::Client, @zset : String, @sampling : Int32, @keys : Array(String) = [] of String)
     @keys = load_keys if @keys.empty?
   end
 
