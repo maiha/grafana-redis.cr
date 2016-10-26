@@ -26,7 +26,7 @@ shards:
 
   redis-cluster:
     github: maiha/redis-cluster.cr
-    version: 0.6.1
+    version: 0.6.7
 
   toml:
     github: manastech/crystal-toml
