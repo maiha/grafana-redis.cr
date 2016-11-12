@@ -7,6 +7,7 @@ require "colorize"
 require "jq"
 require "redis-cluster"
 require "toml-config"
+require "opts"
 
 # Project
 require "./lib/**"
