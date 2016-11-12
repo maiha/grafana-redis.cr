@@ -1,9 +1,9 @@
-# grafana-redis.cr
+# grafana-redis.cr [![Build Status](https://travis-ci.org/maiha/grafana-redis.cr.svg?branch=master)](https://travis-ci.org/maiha/grafana-redis.cr)
 
 Grefana Datasource for Redis storage
 
 - Created by crystal-0.19.4
-- Static binary x86 linux : https://github.com/maiha/grafana-redis.cr/releases
+- Static binary x86_64 linux : https://github.com/maiha/grafana-redis.cr/releases
 
 ## Features
 
