@@ -3,6 +3,6 @@
 /libs/
 /.crystal/
 /.shards/
-/.shard.lock
+/shard.lock
 /.crystal-version
 
