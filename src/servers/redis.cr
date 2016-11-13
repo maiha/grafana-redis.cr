@@ -1,5 +1,3 @@
-require "../all"
-
 class Servers::Redis
   def initialize(@host : String, @port : Int32, @storage : Storage::Redis, @limit : Int32)
     @server = HTTP::Server.new(host, port) do |ctx|

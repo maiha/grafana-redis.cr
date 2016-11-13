@@ -1,4 +1,4 @@
-require "../all"
+require "../grafana-redis"
 
 class Main
   include Opts

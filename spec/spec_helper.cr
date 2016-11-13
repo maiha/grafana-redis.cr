@@ -1,2 +1,2 @@
 require "spec"
-require "../src/all"
+require "../src/grafana-redis"

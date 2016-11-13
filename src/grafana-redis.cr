@@ -10,7 +10,6 @@ require "toml-config"
 require "opts"
 
 # Project
-require "./lib/**"
 require "./grafana/**"
 require "./engine/**"
 require "./storage/**"
