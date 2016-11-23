@@ -33,7 +33,7 @@ class Servers::Redis
   end
 
   private def do_query(ctx)
-    body = ctx.request.body.not_nil!
+    body = ctx.request.body.not_nil!.to_s
     req  = Grafana::Query::Request.from_json(body)
     from = req.from.to_local.epoch.to_i32
     to   = req.to.to_local.epoch.to_i32
