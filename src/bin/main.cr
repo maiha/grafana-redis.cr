@@ -3,8 +3,8 @@ require "../grafana-redis"
 class Main
   include Opts
 
-  VERSION = "0.3.1"
-  PROGRAM = "grafana-redis"
+  VERSION = Shard.version
+  PROGRAM = Shard.program
   ARGS    = "config.toml"
 
   option version : Bool, "--version", "Print the version and exit", false

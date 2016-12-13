@@ -8,6 +8,7 @@ require "jq"
 require "redis-cluster"
 require "toml-config"
 require "opts"
+require "shard"
 
 # Project
 require "./grafana/**"
