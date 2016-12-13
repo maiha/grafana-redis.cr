@@ -4,13 +4,13 @@ version: 0.3.1
 dependencies:
   kemal:
     github: sdogruyol/kemal
-    version: 0.14.1
+    version: 0.17.3
   jq:
     github: maiha/jq.cr
     version: 0.3.0
   redis-cluster:
     github: maiha/redis-cluster.cr
-    version: 0.6.8
+    version: 0.6.9
   toml-config:
     github: maiha/toml-config.cr
     version: 0.2.0
