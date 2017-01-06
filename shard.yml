@@ -4,22 +4,16 @@ version: 0.3.2
 dependencies:
   kemal:
     github: sdogruyol/kemal
-    version: 0.17.3
+    version: 0.17.4
   jq:
     github: maiha/jq.cr
-    version: 0.3.0
+    version: 0.3.2
   redis-cluster:
     github: maiha/redis-cluster.cr
-    version: 0.6.9
-  toml-config:
-    github: maiha/toml-config.cr
-    version: 0.2.0
-  opts:
-    github: maiha/opts.cr
-    version: 0.1.1
-  shard:
-    github: maiha/shard.cr
-    version: 0.1.1
+    version: 0.7.2
+  app:
+    github: maiha/app.cr
+    version: 0.3.2
 
 authors:
   - maiha <maiha@wota.jp>
