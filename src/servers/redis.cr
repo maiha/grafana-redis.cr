@@ -1,12 +1,13 @@
 class Servers::Redis
   def initialize(@host : String, @port : Int32, @storage : Storage::Redis, @limit : Int32)
-    @server = HTTP::Server.new(host, port) do |ctx|
+    @server = HTTP::Server.new do |ctx|
       handle(ctx)
     end
   end
     
   def start
     puts "Listening on http://#{@host}:#{@port}"
+    @server.bind_tcp @host, @port
     @server.listen
   end
 
