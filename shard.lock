@@ -1,0 +1,62 @@
+version: 1.0
+shards:
+  crc16:
+    github: maiha/crc16.cr
+    version: 0.1.0
+
+  jq:
+    github: maiha/jq.cr
+    version: 0.8.0
+
+  kemal:
+    github: sdogruyol/kemal
+    version: 0.17.3
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.3.3
+
+  multipart:
+    github: RX14/multipart.cr
+    version: 0.1.1
+
+  opts:
+    github: maiha/opts.cr
+    version: 0.6.0
+
+  pool:
+    github: ysbaddaden/pool
+    version: 0.2.3
+
+  pretty:
+    github: maiha/pretty.cr
+    version: 0.9.8
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
+
+  redis:
+    github: maiha/crystal-redis
+    version: 2.6.0
+
+  redis-cluster:
+    github: maiha/redis-cluster.cr
+    version: 0.8.3
+
+  shard:
+    github: maiha/shard.cr
+    version: 0.3.1
+
+  toml:
+    github: maiha/toml.cr
+    version: 0.6.2
+
+  toml-config:
+    github: maiha/toml-config.cr
+    version: 0.6.1
+
+  var:
+    github: maiha/var.cr
+    version: 1.2.0
+

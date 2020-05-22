@@ -6,7 +6,7 @@ class Storage::Redis
   end
 
   def load_keys
-    zset = resolve_key(Time.now.epoch - 60)
+    zset = resolve_key(Pretty.now.to_unix - 60)
     json = @redis.zrange(zset, -1, -1).first{ "" }.to_s.as(String)
     JSON.parse(json).as_h.keys.map(&.to_s).as(Array(String))
   rescue err
@@ -33,7 +33,7 @@ class Storage::Redis
   end
   
   private def resolve_key(epoch)
-    Time.epoch(epoch).to_local.to_s(@zset)
+    Pretty.epoch(epoch).to_local.to_s(@zset)
   end
 
   private def debug_cmd_result(lines)

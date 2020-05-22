@@ -12,25 +12,25 @@ class Main
 
   @config : TOML::Config?
   getter! config
-  delegate str, str?, strs, int, bool, to: config
+  delegate str, str?, strs, i32, bool, to: config
   
   def run
     @config = TOML::Config.parse_file(args.shift { die "config not found!" })
 
     host = str("httpd/host")
-    port = int("httpd/port")
+    port = i32("httpd/port")
 
-    httpd = Servers::Redis.new(host: host, port: port, storage: storage, limit: int("engine/limit"))
+    httpd = Servers::Redis.new(host: host, port: port, storage: storage, limit: i32("engine/limit"))
     httpd.start
   end
 
   private def redis
-    Redis::Client.new(str("redis/host"), int("redis/port"), password: str?("redis/pass"))
+    Redis::Client.new(str("redis/host"), i32("redis/port"), password: str?("redis/pass"))
   end
 
   private def storage
     zset = str("redis/zset").gsub(/__host__/, System.hostname)
-    Storage::Redis.new(redis, zset, int("redis/sampling"))
+    Storage::Redis.new(redis, zset, i32("redis/sampling"))
   end
 end
 

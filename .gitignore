@@ -4,6 +4,5 @@
 /libs/
 /.crystal/
 /.shards/
-/shard.lock
 /.crystal-version
 

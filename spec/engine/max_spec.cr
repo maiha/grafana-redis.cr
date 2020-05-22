@@ -5,14 +5,14 @@ private def max(key, jqs)
 end
 
 describe Engine::Max do
-  jsons = <<-EOF
-    {"epoch":100,"usr":1,"1m":1.04,"odd":1,"even":null}
-    {"epoch":101,"usr":2,"1m":1.25,"odd":null,"even":2}
-    {"epoch":102,"usr":3,"1m":1.19,"odd":5}
-    EOF
-  jqs = jsons.strip.split(/\s+/m).map{|j| Jq.new(j)}
-
   describe "#max" do
+    jsons = <<-EOF
+      {"epoch":100,"usr":1,"1m":1.04,"odd":1,"even":null}
+      {"epoch":101,"usr":2,"1m":1.25,"odd":null,"even":2}
+      {"epoch":102,"usr":3,"1m":1.19,"odd":5}
+      EOF
+    jqs = jsons.strip.split(/\n/).map{|j| Jq.new(j)}
+
     it "(int)" do
       max("usr", jqs).should be_a(Int64)
       max("usr", jqs).should eq(3)

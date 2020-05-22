@@ -36,8 +36,8 @@ class Servers::Redis
   private def do_query(ctx)
     body = ctx.request.body.not_nil!.to_s
     req  = Grafana::Query::Request.from_json(body)
-    from = req.from.to_local.epoch.to_i32
-    to   = req.to.to_local.epoch.to_i32
+    from = req.from.to_local.to_unix.to_i32
+    to   = req.to.to_local.to_unix.to_i32
 
     lines = @storage.search(from, to)
     array = format_query(lines, req.targets, req.max)

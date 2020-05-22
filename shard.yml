@@ -7,16 +7,12 @@ dependencies:
     version: 0.17.3
   jq:
     github: maiha/jq.cr
-    version: ">= 0.6.0"
   redis-cluster:
     github: maiha/redis-cluster.cr
-    version: ">= 0.8.0"
   toml-config:
     github: maiha/toml-config.cr
-    version: ">= 0.3.2"
   opts:
     github: maiha/opts.cr
-    version: ">= 0.6.0"
 
 authors:
   - maiha <maiha@wota.jp>

@@ -2,12 +2,12 @@ SHELL = /bin/bash
 LINK_FLAGS = --link-flags "-static" -D without_openssl
 PROGS = grafana-redis
 
-.PHONY : all static compile spec clean bin test
+.PHONY : all static compile spec clean bin ci
 .PHONY : ${PROGS}
 
 all: static
 
-test: spec compile static version
+ci: spec compile static version
 
 static: bin ${PROGS}
 
